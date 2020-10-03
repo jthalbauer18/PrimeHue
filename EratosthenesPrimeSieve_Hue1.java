@@ -34,7 +34,10 @@ public class EratosthenesPrimeSieve_Hue1 {
     }
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        int max = 2342;
+
+        EratosthenesPrimeSieve_Hue1.printPrimes(EratosthenesPrimeSieve_Hue1.EratosthenesPrimeSieve(max), max);
+
     }
 
 }
