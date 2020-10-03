@@ -11,11 +11,30 @@ package eratosthenesprimesieve_hue1;
  */
 public class EratosthenesPrimeSieve_Hue1 {
 
-    /**
-     * @param args the command line arguments
-     */
+    public static interface PrimeSieve {
+
+        public boolean isPrime(int p);
+
+        public void prinPrimes();
+    }
+
+    public static boolean[] EratosthenesPrimeSieve(int max) {
+        boolean prime[] = new boolean[max + 1];
+        for (int i = 0; i < max; i++) {
+            prime[i] = true;
+        }
+        for (int i = 0; i * i <= max; i++) {
+            if (prime[i] == true) {
+                for (int j = i * i; j <= max; j += i) {
+                    prime[i] = false;
+                }
+            }
+        }
+        return prime;
+    }
+
     public static void main(String[] args) {
         // TODO code application logic here
     }
-    
+
 }
