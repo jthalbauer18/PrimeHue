@@ -23,20 +23,24 @@ public class EratosthenesPrimeSieve_Hue1 {
         for (int i = 0; i < max; i++) {
             prime[i] = true;
         }
-        for (int i = 0; i * i <= max; i++) {
-            if (prime[i] == true) {
-                for (int j = i * i; j <= max; j += i) {
+
+        for (int p = 2; p * p <= max; p++) {
+
+            if (prime[p] == true) {
+
+                for (int i = p * p; i <= max; i += p) {
                     prime[i] = false;
                 }
             }
         }
         return prime;
+
     }
 
     public static void main(String[] args) {
         int max = 2342;
-
-        EratosthenesPrimeSieve_Hue1.printPrimes(EratosthenesPrimeSieve_Hue1.EratosthenesPrimeSieve(max), max);
+        EratosthenesPrimeSieve_Hue1 e = new EratosthenesPrimeSieve_Hue1();
+        e.printPrimes(EratosthenesPrimeSieve_Hue1.EratosthenesPrimeSieve(max), max);
 
     }
 
