@@ -52,4 +52,18 @@ public class EratosthenesPrimeSieve_Hue1 {
         }
 
     }
+
+    public static void addTwoPrimes(int o) {
+        boolean prime[] = EratosthenesPrimeSieve(o + 1);
+        boolean erg = false;
+        for (int i = 4; i < o; i = i + 2) {
+
+            for (int j = 2; erg == true; j++) {
+                if (prime[j] == true) {
+
+                }
+
+            }
+        }
+    }
 }
