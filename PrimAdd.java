@@ -16,61 +16,56 @@ public class PrimAdd {
     public int u = 4;
 
     public static void main(String[] args) {
-
         Scanner in = new Scanner(System.in);
-        int untergrenze = 4;
-        int o;
-        o = 10;
-        Rechner(o);
-        in.close();
+        int max;
+        max = in.nextInt();
+        Rechner(max);
+
     }
 
     public static void Rechner(int obergrenze) {
         for (int i = 4; i <= obergrenze; i = i + 2) {
-            pruefeZahlen(i, obergrenze);
+            testNumber(i, obergrenze);
         }
     }
 
-    public static void pruefeZahlen(int gZahl, int obergrenze) {
+    public static void testNumber(int evenNumber, int obergrenze) {
         boolean boolWert1;
         boolean boolWert2;
         boolean gefunden = false;
-        int erstePrim = 2;
-        int zweitePrim = 2;
+        int primeAdd1 = 2;
+        int primeAdd2;
 
-        while (erstePrim < obergrenze - 2 && !gefunden) {
-            boolWert1 = isPrime(erstePrim);
+        while (primeAdd1 < obergrenze - 2 && !gefunden) {
+            boolWert1 = isPrime(primeAdd1);
             if (boolWert1) {
-                zweitePrim = 2;
-                while (zweitePrim < gZahl && !gefunden) {
-                    boolWert2 = isPrime(zweitePrim);
+                primeAdd2 = 2;
+                while (primeAdd2 < evenNumber && !gefunden) {
+                    boolWert2 = isPrime(primeAdd2);
                     if (boolWert2) {
-                        if (erstePrim + zweitePrim == gZahl) {
+                        if (primeAdd1 + primeAdd2 == evenNumber) {
                             gefunden = true;
-                            System.out.println(erstePrim + " + " + zweitePrim
-                                    + " = " + gZahl);
+                            System.out.println(primeAdd1 + " + " + primeAdd2 + " = " + evenNumber);
+
                         }
                     }
-                    zweitePrim++;
+                    primeAdd2++;
                 }
             }
-            erstePrim++;
+            primeAdd1++;
         }
     }
 
-    
-    public static boolean isPrime(int x){
+    public static boolean isPrime(int x) {
         if (x == 1) {
-                return false;
-            } else {
-                for (int i = 2; i <= Math.sqrt(x); i++) {
-                    if (x % i == 0) {
-                        return false;
-                    }
+            return false;
+        } else {
+            for (int i = 2; i <= Math.sqrt(x); i++) {
+                if (x % i == 0) {
+                    return false;
                 }
             }
-            return true;
         }
+        return true;
     }
-
-
+}
