@@ -39,11 +39,11 @@ public class PrimAdd {
         int zweitePrim = 2;
 
         while (erstePrim < obergrenze - 2 && !gefunden) {
-            boolWert1 = pruefeAufPrimzahl(erstePrim);
+            boolWert1 = isPrime(erstePrim);
             if (boolWert1) {
                 zweitePrim = 2;
                 while (zweitePrim < gZahl && !gefunden) {
-                    boolWert2 = pruefeAufPrimzahl(zweitePrim);
+                    boolWert2 = isPrime(zweitePrim);
                     if (boolWert2) {
                         if (erstePrim + zweitePrim == gZahl) {
                             gefunden = true;
@@ -58,15 +58,19 @@ public class PrimAdd {
         }
     }
 
-    public static boolean pruefeAufPrimzahl(int erstePrim) {
-        boolean prim = true;
-        long teiler = erstePrim - 1;
-        while (teiler > 1 && prim) {
-            if (erstePrim % teiler == 0) {
-                prim = false;
+    
+    public static boolean isPrime(int x){
+        if (x == 1) {
+                return false;
+            } else {
+                for (int i = 2; i <= Math.sqrt(x); i++) {
+                    if (x % i == 0) {
+                        return false;
+                    }
+                }
             }
-            teiler--;
+            return true;
         }
-        return prim;
     }
-}
+
+
