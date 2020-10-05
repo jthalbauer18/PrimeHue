@@ -13,8 +13,6 @@ import java.util.Scanner;
  */
 public class PrimAdd {
 
-    public int u = 4;
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int max;
@@ -29,20 +27,19 @@ public class PrimAdd {
         }
     }
 
-    public static void testNumber(int evenNumber, int obergrenze) {
+    public static void testNumber(int evenNumber, int max) {
         boolean boolWert1;
         boolean boolWert2;
         boolean gefunden = false;
         int primeAdd1 = 2;
         int primeAdd2;
-
-        while (primeAdd1 < obergrenze - 2 && !gefunden) {
+        while (primeAdd1 < max - 2 && !gefunden) {
             boolWert1 = isPrime(primeAdd1);
             if (boolWert1) {
                 primeAdd2 = 2;
                 while (primeAdd2 < evenNumber && !gefunden) {
                     boolWert2 = isPrime(primeAdd2);
-                    if (boolWert2) {
+                    if (boolWert2==true) {
                         if (primeAdd1 + primeAdd2 == evenNumber) {
                             gefunden = true;
                             System.out.println(primeAdd1 + " + " + primeAdd2 + " = " + evenNumber);

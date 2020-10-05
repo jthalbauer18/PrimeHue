@@ -39,9 +39,9 @@ public class EratosthenesPrimeSieve_Hue1 {
 
     }
 
-    public static void printPrimes(boolean[] b, int max) {
+    public static void printPrimes(boolean[] boolWert, int max) {
         for (int i = 2; i <= max; i++) {
-            if (b[i] == true) {
+            if (boolWert[i] == true) {
                 System.out.println(i + " ");
             }
         }
